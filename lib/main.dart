@@ -16,6 +16,7 @@ class MyApp extends StatelessWidget {
 }
 
 // IMAGES
+
 var meatImage =
     'https://images.unsplash.com/photo-1532597311687-5c2dc87fff52?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=80';
 var foodImage =
@@ -49,13 +50,13 @@ class MyHomePage extends StatelessWidget {
         body: Container(
           child: ListView(
             children: <Widget>[
-              SizedBox(height: 16.0),
+              SizedBox(height: 2.0),
               MyAppBar(),
-              SizedBox(height: 16.0),
+              SizedBox(height: 2.0),
               FoodListview(),
-              SizedBox(height: 16.0),
-              SizedBox(height: 16.0),
-              MenuItemsList()
+              SizedBox(height: 2.0),
+              MenuItemsList(),
+              MenuCardList()
             ],
           ),
         ));
@@ -139,6 +140,8 @@ class MyActionButton extends StatelessWidget {
   }
 }
 
+
+
 class MenuItemsList extends StatelessWidget {
   const MenuItemsList({
     Key key,
@@ -148,25 +151,131 @@ class MenuItemsList extends StatelessWidget {
   Widget build(BuildContext context) {
     return Padding(
       padding: const EdgeInsets.symmetric(horizontal: 8.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
+      child: Container(
+        height: 350.0,
+        child: ListView(
+          shrinkWrap: true,
+          scrollDirection: Axis.vertical,
+          children: <Widget>[
+            Text(
+              'Lo más pedido',
+              style: TextStyle(fontSize: 25.0, color: Colors.black54),
+            ),
+            SizedBox(height: 5.0),
+            MenuItem(),
+            MenuItem(),
+            MenuItem(),
+            MenuItem(),
+            MenuItem(),
+            MenuItem(),
+          ],
+        ),
+        ),
+    );
+  }
+}
+
+class MenuCardList extends StatelessWidget {
+  const MenuCardList({
+    Key key,
+  }) : super(key: key);
+
+  @override
+  Widget build(BuildContext context) {
+ return Padding(
+      padding: const EdgeInsets.only(top: 0.0, left: 15.0),
+      child: Container(
+        height: 125.0,
+        child: ListView(
+          shrinkWrap: true,
+          scrollDirection: Axis.horizontal,
+          children: <Widget>[
+            MenuCard(),
+            SizedBox(width: 10.0),
+            MenuCard(),
+            SizedBox(width: 10.0),
+            MenuCard(),
+            SizedBox(width: 10.0),
+            MenuCard(),
+            SizedBox(width: 10.0),
+            MenuCard(),
+            SizedBox(width: 10.0), 
+          ],
+        ),
+      ),
+    );
+    }
+}
+
+
+class MenuCard extends StatelessWidget{
+  const MenuCard({
+    Key key,
+  }) : super(key: key);
+
+  @override
+
+  Widget build(BuildContext context) {
+    return Container(
+      height: 110.0,
+      width: 250.0,
+      decoration: BoxDecoration(
+        borderRadius: BorderRadius.circular(12.0),
+        color: Colors.white,
+      ),
+      child: Row(
         children: <Widget>[
-          Text(
-            'Popular Dishes',
-            style: TextStyle(fontSize: 22.0, color: Colors.black54),
+          Container(
+            decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(12.0),
+                image:
+                    DecorationImage(image: AssetImage('assets/balanced.jpg'))),
+            height: 115.0,
+            width: 100.0,
           ),
-          SizedBox(height: 16.0),
-          MenuItem(),
-          MenuItem(),
-          MenuItem(),
-          MenuItem(),
-          MenuItem(),
-          MenuItem(),
+          SizedBox(width: 20.0),
+          Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: <Widget>[
+              Text(
+                'Ceviche con causa',
+                style: TextStyle(fontFamily: 'Quicksand'),
+              ),
+              Text(
+                'de Cangrejo',
+                style: TextStyle(fontFamily: 'Quicksand'),
+              ),
+              SizedBox(height: 5.0),
+              Container(
+                height: 2.0,
+                width: 75.0,
+                color: Colors.orange,
+              ),
+              SizedBox(height: 5.0),
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: <Widget>[
+                  Container(
+                    height: 25.0,
+                    width: 25.0,
+                    decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(12.5),
+                        image: DecorationImage(
+                            image: AssetImage('assets/cerberodev.png'))),
+                  ),
+                  SizedBox(width: 5.0),
+                  Text('Pierre Guillen',
+                      style: TextStyle(fontFamily: 'Quicksand'))
+                ],
+              )
+            ],
+          )
         ],
       ),
     );
   }
 }
+
 
 class MenuItem extends StatelessWidget {
   const MenuItem({
@@ -183,10 +292,7 @@ class MenuItem extends StatelessWidget {
           Container(
             height: 100.0,
             width: 100.0,
-            child: Image.network(
-              burgerImage,
-              fit: BoxFit.cover,
-            ),
+            child: Image.asset('assets/sandwich.jpg'),
           ),
           SizedBox(
             width: 16.0,
@@ -204,11 +310,7 @@ class MenuItem extends StatelessWidget {
                         horizontal: 8.0, vertical: 4.0),
                     child: Row(
                       children: <Widget>[
-                        Icon(
-                          Icons.star,
-                          size: 15.0,
-                        ),
-                        Text('4.5')
+                        Text('25 '), Icon(Icons.monetization_on, size: 15.0, )
                       ],
                     ),
                   ),
@@ -217,13 +319,13 @@ class MenuItem extends StatelessWidget {
                   height: 8.0,
                 ),
                 Text(
-                  'Special Chicken Burger',
+                  'Arroz con Pollo',
                   style: TextStyle(fontWeight: FontWeight.w600),
                 ),
                 Container(
                     width: 200.0,
                     child: Text(
-                      'Chicken, Yogurt, Red chilli, Ginger paste, Carlic paste, ...',
+                      'Delicioso plato de arroz con pollo, con su respectiva papa a la huancaina ...',
                       style: TextStyle(color: Colors.grey),
                     )),
               ],
@@ -254,8 +356,6 @@ class FoodListview extends StatelessWidget {
         child: ListView(
           scrollDirection: Axis.horizontal,
           children: <Widget>[
-            ItemCard(),
-            ItemCard(),
             ItemCard(),
             ItemCard(),
             ItemCard(),
@@ -314,7 +414,7 @@ class ItemCard extends StatelessWidget {
           width: 300.0,
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: NetworkImage(meatImage), fit: BoxFit.cover)),
+                  image: AssetImage('assets/food.jpg'), fit: BoxFit.cover)),
           child: Stack(
             children: <Widget>[
               Container(
@@ -333,7 +433,7 @@ class ItemCard extends StatelessWidget {
                   children: <Widget>[
                     Spacer(),
                     Text(
-                      '25% OFF',
+                      '-25%',
                       style: TextStyle(
                           color: textYellow,
                           fontWeight: FontWeight.bold,
@@ -341,7 +441,8 @@ class ItemCard extends StatelessWidget {
                           letterSpacing: 1.1),
                     ),
                     Text(
-                      'ON FIRST 3 ORDERS',
+                      // COLOCAR TEXTO EN EL 'XXXXXX'
+                      'Por compras mayores a 150 S/',
                       style: TextStyle(
                           color: Colors.white,
                           fontSize: 16.0,
