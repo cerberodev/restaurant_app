@@ -229,7 +229,7 @@ class MenuCard extends StatelessWidget{
             decoration: BoxDecoration(
                 borderRadius: BorderRadius.circular(12.0),
                 image:
-                    DecorationImage(image: AssetImage('assets/balanced.jpg'))),
+                    DecorationImage(image: AssetImage('assets/ceviche.jpg'))),
             height: 115.0,
             width: 100.0,
           ),
@@ -292,7 +292,7 @@ class MenuItem extends StatelessWidget {
           Container(
             height: 100.0,
             width: 100.0,
-            child: Image.asset('assets/sandwich.jpg'),
+            child: Image.asset('assets/arroz.jpg'),
           ),
           SizedBox(
             width: 16.0,
@@ -414,7 +414,7 @@ class ItemCard extends StatelessWidget {
           width: 300.0,
           decoration: BoxDecoration(
               image: DecorationImage(
-                  image: AssetImage('assets/food.jpg'), fit: BoxFit.cover)),
+                  image: AssetImage('assets/lomo.jpg'), fit: BoxFit.cover)),
           child: Stack(
             children: <Widget>[
               Container(

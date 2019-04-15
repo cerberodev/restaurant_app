@@ -45,6 +45,9 @@ flutter:
    - assets/balanced.jpg
    - assets/chris.jpg
    - assets/breakfast.jpg
+   - assets/lomo.jpg
+   - assets/ceviche.jpg
+   - assets/arroz.jpg
    - assets/cerberodev.png
 
   # An image asset can refer to one or more resolution-specific "variants", see
