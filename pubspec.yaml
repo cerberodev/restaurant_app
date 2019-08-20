@@ -33,11 +33,13 @@ flutter:
   
   assets:
    
+   - assets/
+   - assets/logo.png
    - assets/lomo.jpg
    - assets/ceviche.jpg
    - assets/arroz.jpg
    - assets/cerberodev.png
-   - assets/logo.png
+   
 
   fonts:
     - family: Timesroman
