@@ -14,10 +14,18 @@ dependencies:
   font_awesome_flutter: ^8.2.0
   flutter_swiper: ^1.1.4
   polygon_clipper: ^1.0.1
+  splashscreen: ^1.2.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
+
+  flutter_launcher_icons: "^0.7.2"
+
+flutter_icons:
+  android: "launcher_icon" 
+  ios: true
+  image_path: "assets/logo.png"
 
 flutter:
 
