@@ -1,16 +1,39 @@
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:polygon_clipper/polygon_clipper.dart';
+import 'package:splashscreen/splashscreen.dart';
 
-void main() => runApp(MyApp());
+void main() => runApp(
+    new MaterialApp(
+      home:MyApp(),
+      ));
 
-class MyApp extends StatelessWidget {
+
+class MyApp extends StatefulWidget {
+  @override
+  _MyAppState createState() => new _MyAppState();
+}
+
+class _MyAppState extends State<MyApp> {
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      debugShowCheckedModeBanner: false,
-      title: 'FLUREST',
-      home: MyHomePage(),
+    return new SplashScreen(
+        seconds: 5,
+        navigateAfterSeconds: new MyHomePage(),
+        title: 
+        new Text('Restaurant App By: cerbero.dev',
+          style: new TextStyle(
+              fontWeight: FontWeight.bold,
+              fontSize: 20.0
+          ),),
+        
+        image: new Image.asset('assets/logo.png'),
+
+        backgroundColor: Colors.white70,
+        styleTextUnderTheLoader: new TextStyle(),
+        photoSize: 100.0,
+        onClick: ()=>print("Cerbero Dev"),
+        loaderColor: Colors.redAccent
     );
   }
 }

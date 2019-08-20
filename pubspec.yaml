@@ -37,6 +37,7 @@ flutter:
    - assets/ceviche.jpg
    - assets/arroz.jpg
    - assets/cerberodev.png
+   - assets/logo.png
 
   fonts:
     - family: Timesroman
